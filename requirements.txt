@@ -1,0 +1,24 @@
+# 版本下限按"实际可用的最低 API"来写，别卡在下限凑不到的组合上
+#
+# 注意：LLM 走云端 DeepSeek（OpenAI 兼容端点 https://api.deepseek.com，模型 deepseek-chat）。
+# - 需要自己的 DeepSeek API Key：侧边栏输入 / .streamlit/secrets.toml / 环境变量 DEEPSEEK_API_KEY
+# - 想改成本地推理（Ollama）也可以：启动 `ollama serve` 并 `ollama pull qwen2.5` 后，
+#   用环境变量把 DEEPSEEK_BASE_URL 指到 http://localhost:11434/v1、DEEPSEEK_MODEL 改成 qwen2.5、
+#   Key 随便填个占位符即可，代码不用改。此时下面这几个包一个都不多装。
+streamlit>=1.36
+langgraph>=0.2.31            # interrupt / Command 这套 HITL API 从 0.2.31 起才有
+langgraph-checkpoint-sqlite>=2.0.0
+langchain>=0.3
+langchain-core>=0.3
+langchain-openai>=0.2
+langchain-chroma>=0.1.4
+langchain-huggingface>=0.1.0
+langchain-text-splitters>=0.3   # app.py 直接 import，别再指望被 langchain 顺带装上
+chromadb>=0.5
+sentence-transformers>=2.7
+pypdf>=4.0
+PyMuPDF>=1.24
+pdfplumber>=0.11             # core.py 直接 import
+pandas>=2.0
+numpy>=1.26                  # OCR 回退里重组图像用
+easyocr>=1.7                 # 扫描件 OCR 回退；体积大（含 torch），纯文字版 PDF 不装也能跑
