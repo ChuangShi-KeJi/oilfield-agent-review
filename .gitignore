@@ -1,0 +1,28 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+
+# ---- Streamlit 密钥（绝不入库）----
+.streamlit/secrets.toml
+
+# ---- 本地运行产物（含解析出的真实井位 / 参数，禁止公开）----
+chroma_db/
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+
+# ---- 历史备份、本地快捷方式、原始工程资料 ----
+*副本*
+*.lnk
+*.pdf
+*.zip
+
+# ---- 编辑器 / 系统文件 ----
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
